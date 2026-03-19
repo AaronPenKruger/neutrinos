@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it."
+title: "icecube-neutrino-maps"
+version: 0.0.0
+authors:
+  - family-names: "Macias"
+    given-names: "Oscar"

@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deephpx"
+version = "0.7.0"
+description = "DeepHpx: modern PyTorch-friendly HEALPix ingestion + graph utilities for SBI"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "DeepHpx contributors"}]
+
+dependencies = [
+  "numpy>=1.23",
+]
+
+[project.optional-dependencies]
+# HEALPix utilities (FITS I/O + RING<->NEST conversions + neighbour queries).
+# We use healpy APIs such as:
+# - healpy.fitsfunc.read_map(..., nest=..., h=...)
+# - healpy.pixelfunc.reorder(...)
+# - healpy.pixelfunc.get_all_neighbours(...)
+healpix = [
+  "healpy>=1.15",
+]
+
+# Sparse adjacency + Laplacians
+graph = [
+  "scipy>=1.9",
+]
+
+# Torch sparse conversion utilities (Milestone 3 adds torch NN layers)
+torch = [
+  "torch>=2.0",
+]
+
+# LtU-ILI integration (Milestone 6)
+#
+# LtU-ILI offers two mutually-exclusive installs; for our purposes we want the
+# PyTorch stack (sbi + lampe).
+ili = [
+  "ltu-ili[pytorch]",
+]
+
+dev = [
+  "pytest>=7.4",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"

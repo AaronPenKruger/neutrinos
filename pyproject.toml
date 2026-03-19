@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "icecube-neutrino-maps"
+version = "0.0.0"
+description = "Expected astrophysical + atmospheric neutrino count maps for IceCube (scaffold)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "Oscar Macias"}]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = [
+  "icecube_population_project",
+  "data_to_maps",
+  "nu_pop_core",
+  "IceCube_expected_nu_counts",
+  "IceCube_atmo_expected_counts",
+  "generate_sims_capel_wide",
+  "pretrain_deephpx_embedding",
+]
