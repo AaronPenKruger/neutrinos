@@ -1,0 +1,111 @@
+{
+  "sim_cfg": {
+    "n_sims": 2,
+    "seed": 4698,
+    "nside": 128,
+    "nest": true,
+    "output_format": "zarr",
+    "zarr_chunk_sims": 1,
+    "time_years": 7.8061182882671565,
+    "energy_edges_GeV": [
+      10000.0,
+      39810.71705534969,
+      158489.3192461114,
+      630957.344480193,
+      2511886.431509582,
+      10000000.0
+    ],
+    "real_maps_npz": "/home/917910739/icecube-pop/neutrinos/data/Results/icecube10y_counts_maps.npz",
+    "enforce_match_real_maps": true,
+    "allow_nside_override": true,
+    "allow_nest_override": true,
+    "truth_store": true,
+    "truth_topk": 64,
+    "truth_min_expected_counts": 0.0,
+    "sources_to_draw": 2000,
+    "energy_grid_per_decade": 6,
+    "reco_batch_size": 200000,
+    "astro_psf_mode": "fixed_event",
+    "fixed_psf_sigma_deg": 1.0,
+    "atmo_psf_mode": "none",
+    "conventional_model": "honda2006",
+    "include_prompt": false
+  },
+  "prior": {
+    "log10_n0_min": -9.5,
+    "log10_n0_max": -6.0,
+    "log10_L_TeV_s_min": 40.5,
+    "log10_L_TeV_s_max": 45.5,
+    "gamma_mean": 2.2,
+    "gamma_sigma": 0.3,
+    "gamma_min": 1.5,
+    "gamma_max": 3.2,
+    "p1_min": 19.0,
+    "p1_max": 21.0,
+    "d_min": 0.0,
+    "d_max": 6.0,
+    "zc_min": 1.0,
+    "zc_max": 1.8
+  },
+  "uses_reco_energy_smearing": true,
+  "livetime_years_total": 7.8061182882671565,
+  "livetime_days_total": 2851.184704789579,
+  "paths": {
+    "maps_counts": "/home/917910739/icecube-pop/neutrinos/data/Sims/Capel_wide/maps_counts.zarr",
+    "theta_csv": "/home/917910739/icecube-pop/neutrinos/data/Sims/Capel_wide/theta.csv",
+    "truth_hotspot_sparse": "/home/917910739/icecube-pop/neutrinos/data/Sims/Capel_wide/truth_hotspot_sparse.npz"
+  },
+  "derived": {
+    "B": 5,
+    "npix": 196608,
+    "nside": 128,
+    "energy_edges_GeV": [
+      10000.0,
+      39810.71705534969,
+      158489.3192461114,
+      630957.344480193,
+      2511886.431509582,
+      10000000.0
+    ],
+    "nest": true
+  },
+  "reco_pipeline": {
+    "uses_reco_energy_smearing": true,
+    "irf_method": "R2021IRF.sample_energy",
+    "no_additional_psf_jitter": true
+  },
+  "real_maps_match": {
+    "real_maps_npz": "/home/917910739/icecube-pop/neutrinos/data/Results/icecube10y_counts_maps.npz",
+    "livetime_days_total": 2851.184704789579,
+    "livetime_years_total": 7.8061182882671565,
+    "seasons_found": [
+      "IC40",
+      "IC59",
+      "IC86_I",
+      "IC86_II",
+      "IC86_III",
+      "IC86_IV",
+      "IC86_V",
+      "IC86_VI"
+    ],
+    "season_livetime_days": [
+      376.3603109101532,
+      353.57758241001284,
+      332.9630441499248,
+      331.9771613799312,
+      362.9408840498363,
+      370.6848971298896,
+      365.3530335898613,
+      357.3277911699697
+    ],
+    "energy_edges_match_exact": true,
+    "nside_match": false,
+    "nest_match": true,
+    "mismatches_when_not_enforced": {}
+  },
+  "notes": {
+    "L_units": "We sample L in TeV/s (Capel Table II), convert to erg/s for the map generator.",
+    "evolution": "Uses Capel Eq.(4): (1+z)^p1 / (1+z/zc)^p2, normalized to f(0)=1.",
+    "output_format": "maps_counts.zarr stores uint32 when output_format='zarr'."
+  }
+}
