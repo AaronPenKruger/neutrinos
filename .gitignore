@@ -1,9 +1,33 @@
+# macOS
 .DS_Store
+
+# Python
 __pycache__/
 */__pycache__/
-*.pyc
-.ipynb_checkpoints/
+*.py[cod]
 *.egg-info/
+
+# Jupyter / local cache
+.ipynb_checkpoints/
 notebooks/.cache.sqlite
-#data/
+.cache.sqlite
+
+# Slurm / runtime logs
+logs/
+old_logs/
+*.out
+*.err
+
+# Local outputs / archives
 outputs/
+data/archive_*/
+
+# Ignore all generated sim-bank outputs
+data/Sims/**
+
+# Ignore most generated Results artifacts,
+# but keep the two files needed by run_generate_smoke.py
+data/Results/*
+!data/Results/.gitkeep
+!data/Results/icecube10y_counts_maps.npz
+!data/Results/icecube10y_counts_maps.summary.json
